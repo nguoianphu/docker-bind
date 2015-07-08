@@ -13,6 +13,7 @@ chmod 755 ${DATA_DIR}
 
 # create directory for bind config
 mkdir -p ${BIND_DATA_DIR}
+groupadd ${BIND_USER}
 chown -R root:${BIND_USER} ${BIND_DATA_DIR}
 
 # populate default bind configuration if it does not exist
