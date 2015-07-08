@@ -14,7 +14,8 @@ RUN yum clean all \
  && yum -y install python \
  && yum -y install openssl \
  && yum -y install libxml2 \
- && yum -y install bind9 \
+ ## && yum -y install bind bind-utils bind-chroot \
+ && yum install bind* -y \
  && wget "http://prdownloads.sourceforge.net/webadmin/webmin_${WEBMIN_VERSION}_all.rpm" -P /tmp/ \
  && rpm -ivh /tmp/webmin_${WEBMIN_VERSION}_all.rpm \
  && rm -rf /tmp/webmin_${WEBMIN_VERSION}_all.rpm \
