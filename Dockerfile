@@ -12,7 +12,7 @@ ENV DATA_DIR=/data \
 RUN yum clean all \
  && yum -y update \
  ### Install BIND
- && yum install bind* -y
+ && yum -y install bind* \
  ### Install 3rd party libs
  ### OpenSSL Dev
  && yum -y install openssl openssl-devel \
