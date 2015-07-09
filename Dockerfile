@@ -36,8 +36,8 @@ RUN  wget "http://www.webmin.com/jcameron-key.asc" -P /tmp/ \
  && yum clean all
 
 COPY entrypoint.sh /sbin/entrypoint.sh
-RUN chmod 755 /sbin/entrypoint.sh
+# RUN chmod 755 /sbin/entrypoint.sh
 
 EXPOSE 53/udp 10000/tcp
 VOLUME ["${DATA_DIR}"]
-ENTRYPOINT ["/sbin/entrypoint.sh"]
+# ENTRYPOINT ["/sbin/entrypoint.sh"]
