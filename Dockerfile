@@ -1,7 +1,7 @@
 ### Dockerfile for install ISC BIND DNS
 
 ### I like CentOS
-FROM centos
+FROM centos:latest
 
 MAINTAINER nguoianphu@gmail.com
 
@@ -28,14 +28,13 @@ RUN yum clean all \
  && yum clean all
 
 ### Webmin GUI
-COPY webmin.repo /etc/yum.repos.d/webmin.repo
-RUN  wget "http://www.webmin.com/jcameron-key.asc" -P /tmp/ \
- && rpm --import /tmp/jcameron-key.asc \
- && yum -y install webmin \
- && rm -rf /tmp/jcameron-key.asc \
- && yum clean all
-
-COPY entrypoint.sh /sbin/entrypoint.sh
+# COPY webmin.repo /etc/yum.repos.d/webmin.repo
+#RUN  wget "http://www.webmin.com/jcameron-key.asc" -P /tmp/ \
+# && rpm --import /tmp/jcameron-key.asc \
+# && yum -y install webmin \
+# && rm -rf /tmp/jcameron-key.asc \
+# && yum clean all
+#COPY entrypoint.sh /sbin/entrypoint.sh
 # RUN chmod 755 /sbin/entrypoint.sh
 
 EXPOSE 53/udp 10000/tcp
