@@ -35,7 +35,7 @@ RUN yum clean all \
  ###
  ### BUILD OpenSSL
  && wget "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" -P /tmp/ \
- && tar -xvf /tmp/openssl-${OPENSSL_VERSION}.tar.gz /tmp/ \
+ && tar -xvf /tmp/openssl-${OPENSSL_VERSION}.tar.gz \
  && rm -rf /tmp/openssl-${OPENSSL_VERSION}.tar.gz \
  && mkdir /tmp/openssl-${OPENSSL_VERSION}/linux \
  && /tmp/openssl-${OPENSSL_VERSION}/config --prefix=/tmp/openssl-${OPENSSL_VERSION}/linux \
