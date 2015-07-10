@@ -27,7 +27,7 @@ RUN yum clean all \
  && yum -y install gcc \
  && yum -y install wget \
  && yum -y install tar \
- #&& yum -y install perl \
+ && yum -y install perl \
  #&& yum -y install python \
  && yum clean all \
  ### Start BIND
