@@ -8,7 +8,7 @@ MAINTAINER nguoianphu@gmail.com
 ### Some env variables
 ENV DATA_DIR=/data \
     BIND_USER=bind \
-    OPENSSL_VERSION='1.0.2d' \
+    OPENSSL_VERSION="1.0.2d"
     #LIBXML2_VERSION= \
     #KERBEROS5_VERSION='1.13.2'
 
