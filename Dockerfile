@@ -25,6 +25,7 @@ RUN yum clean all \
  #&& yum -y install krb5-devel \
  ### Install tool for compiling
  && yum -y install gcc \
+ && yum -y install make \
  && yum -y install wget \
  && yum -y install tar \
  && yum -y install perl \
@@ -38,8 +39,9 @@ RUN yum clean all \
  && tar -xvf /tmp/openssl-${OPENSSL_VERSION}.tar.gz \
  && rm -rf /tmp/openssl-${OPENSSL_VERSION}.tar.gz \
  && mkdir openssl-${OPENSSL_VERSION}/linux \
- && openssl-${OPENSSL_VERSION}/config --prefix=openssl-${OPENSSL_VERSION}/linux \
- && make -f openssl-${OPENSSL_VERSION}/linux/Makefile
+ && cd openssl-${OPENSSL_VERSION} \
+ && ./Configure linux-x86_64 --prefix=openssl-${OPENSSL_VERSION}/linux \
+ && make
 #http://web.mit.edu/kerberos/dist/krb5/1.13/krb5-1.13.2-signed.tar
 
 ### Webmin GUI
