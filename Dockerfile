@@ -37,9 +37,9 @@ RUN yum clean all \
  && wget "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" -P /tmp/ \
  && tar -xvf /tmp/openssl-${OPENSSL_VERSION}.tar.gz \
  && rm -rf /tmp/openssl-${OPENSSL_VERSION}.tar.gz \
- && mkdir /tmp/openssl-${OPENSSL_VERSION}/linux \
- && /tmp/openssl-${OPENSSL_VERSION}/config --prefix=/tmp/openssl-${OPENSSL_VERSION}/linux \
- && make -f /tmp/openssl-${OPENSSL_VERSION}/linux/Makefile
+ && mkdir openssl-${OPENSSL_VERSION}/linux \
+ && openssl-${OPENSSL_VERSION}/config --prefix=openssl-${OPENSSL_VERSION}/linux \
+ && make -f openssl-${OPENSSL_VERSION}/linux/Makefile
 #http://web.mit.edu/kerberos/dist/krb5/1.13/krb5-1.13.2-signed.tar
 
 ### Webmin GUI
