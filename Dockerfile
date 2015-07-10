@@ -41,7 +41,12 @@ RUN yum clean all \
  && mkdir openssl-${OPENSSL_VERSION}/linux \
  && cd openssl-${OPENSSL_VERSION} \
  && ./Configure linux-x86_64 --prefix=openssl-${OPENSSL_VERSION}/linux \
- && make
+ && make \
+ && make test \
+ && make install \
+ && cd .. \
+ && rm -rf openssl-${OPENSSL_VERSION}
+ 
 #http://web.mit.edu/kerberos/dist/krb5/1.13/krb5-1.13.2-signed.tar
 
 ### Webmin GUI
