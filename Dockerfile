@@ -7,12 +7,15 @@ MAINTAINER nguoianphu@gmail.com
 
 ### Some env variables
 ENV DATA_DIR=/data \
-    BIND_USER=bind
+    BIND_USER=bind \
+    OPENSSL_VERSION='1.0.2d' \
+    #LIBXML2_VERSION= \
+    #KERBEROS5_VERSION='1.13.2'
 
 RUN yum clean all \
  && yum -y update \
  ### Install BIND
- && yum -y install bind \
+ #&& yum -y install bind \
  ### Install 3rd party libs
  ### OpenSSL Dev
  #&& yum -y install openssl openssl-devel \
@@ -21,13 +24,23 @@ RUN yum clean all \
  ### Kerberos Dev
  #&& yum -y install krb5-devel \
  ### Install tool for compiling
- #&& yum -y install gcc \
- #&& yum -y install wget \
+ && yum -y install gcc \
+ && yum -y install wget \
+ && yum -y install tar \
  #&& yum -y install perl \
  #&& yum -y install python \
- && yum clean all
+ && yum clean all \
  ### Start BIND
  #&& /usr/sbin/named 
+ ###
+ ### BUILD OpenSSL
+ && wget "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" -P /tmp/ \
+ && tar -xvf /tmp/openssl-${OPENSSL_VERSION}.tar.gz /tmp/ \
+ && rm -rf /tmp/openssl-${OPENSSL_VERSION}.tar.gz \
+ && mkdir /tmp/openssl-${OPENSSL_VERSION}/linux \
+ && /tmp/openssl-${OPENSSL_VERSION}/config --prefix=/tmp/openssl-${OPENSSL_VERSION}/linux \
+ && make -f /tmp/openssl-${OPENSSL_VERSION}/linux/Makefile
+#http://web.mit.edu/kerberos/dist/krb5/1.13/krb5-1.13.2-signed.tar
 
 ### Webmin GUI
 # COPY webmin.repo /etc/yum.repos.d/webmin.repo
@@ -39,6 +52,6 @@ RUN yum clean all \
 #COPY entrypoint.sh /sbin/entrypoint.sh
 # RUN chmod 755 /sbin/entrypoint.sh
 
-EXPOSE 53/udp 10000/tcp
+#EXPOSE 53/udp 10000/tcp
 #VOLUME ["${DATA_DIR}"]
 # ENTRYPOINT ["/sbin/entrypoint.sh"]
