@@ -25,9 +25,9 @@ RUN yum clean all \
  #&& yum -y install wget \
  #&& yum -y install perl \
  #&& yum -y install python \
- && yum clean all \
+ && yum clean all
  ### Start BIND
- && /usr/sbin/named 
+ #&& /usr/sbin/named 
 
 ### Webmin GUI
 # COPY webmin.repo /etc/yum.repos.d/webmin.repo
