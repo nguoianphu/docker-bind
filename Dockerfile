@@ -38,9 +38,10 @@ RUN yum clean all \
  && wget "https://www.openssl.org/source/openssl-${OPENSSL_VERSION}.tar.gz" -P /tmp/ \
  && tar -xvf /tmp/openssl-${OPENSSL_VERSION}.tar.gz \
  && rm -rf /tmp/openssl-${OPENSSL_VERSION}.tar.gz \
- && mkdir openssl-${OPENSSL_VERSION}/linux \
+ #&& mkdir openssl-${OPENSSL_VERSION}/linux \
  && cd openssl-${OPENSSL_VERSION} \
- && ./Configure linux-x86_64 --prefix=openssl-${OPENSSL_VERSION}/linux \
+ #&& ./Configure linux-x86_64 --prefix=openssl-${OPENSSL_VERSION}/linux \
+ && ./Configure linux-x86_64 \
  && make \
  && make test \
  && make install \
