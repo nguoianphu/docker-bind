@@ -1,4 +1,4 @@
-[![Circle CI](https://circleci.com/gh/sameersbn/docker-bind.svg?style=svg)](https://circleci.com/gh/sameersbn/docker-bind)
+[![Circle CI](https://circleci.com/gh/sameersbn/docker-bind.svg?style=svg)](https://circleci.com/gh/sameersbn/docker-bind) [![Build Status](https://travis-ci.org/nguoianphu/docker-bind.svg?branch=master)](https://travis-ci.org/nguoianphu/docker-bind [![](https://images.microbadger.com/badges/image/nguoianphu/docker-bind.svg)](http://microbadger.com/images/nguoianphu/docker-bind "Get your own image badge on microbadger.com")
 
 # Table of Contents
 
